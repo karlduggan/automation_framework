@@ -1,12 +1,11 @@
-import email
-
+from .local_parameters import params
 
 parameters = None
 
 def get_parameters():
     return parameters
 
-def load_parameters(params):
+def load_parameters():
     global parameters
     try: 
         from configuration.local_parameters import params

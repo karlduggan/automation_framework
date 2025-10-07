@@ -1,8 +1,9 @@
 from playwright.sync_api import sync_playwright
-from ..configuration.config import get_parameters
+from configuration.config import get_parameters, load_parameters
 
 class BrowserHandler:
     def __init__(self):
+        load_parameters()
         params = get_parameters()
         self.playwright = sync_playwright().start()
         self.browser = getattr(self.playwright, params["browser"]).launch(headless=params["headless"])
